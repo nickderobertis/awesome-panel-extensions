@@ -132,6 +132,7 @@ export interface Container extends Container.Attrs {}
 export class Container extends LayoutDOM {
   properties: Container.Props;
   __view_type__: ContainerView;
+  static __module__ = "awesome_panel_extensions.bokeh_extensions.container";
 
   constructor(attrs?: Partial<Container.Attrs>) {
     super(attrs);

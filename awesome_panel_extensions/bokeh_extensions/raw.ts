@@ -21,6 +21,7 @@ export interface Raw extends Raw.Attrs {}
 export class Raw extends Markup {
   properties: Raw.Props;
   __view_type__: RawView;
+  static __module__ = "awesome_panel_extensions.bokeh_extensions.raw";
 
   constructor(attrs?: Partial<Raw.Attrs>) {
     super(attrs);

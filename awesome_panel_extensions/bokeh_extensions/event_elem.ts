@@ -51,6 +51,7 @@ export interface EventElement extends EventElement.Attrs {}
 export class EventElement extends Widget {
   properties: EventElement.Props;
   __view_type__: EventElementView;
+  static __module__ = "awesome_panel_extensions.bokeh_extensions.event_elem";
 
   constructor(attrs?: Partial<EventElement.Attrs>) {
     super(attrs);
