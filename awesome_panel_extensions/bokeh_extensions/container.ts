@@ -64,7 +64,9 @@ export class ContainerView extends LayoutDOMView {
   get fullHTMLContent(): string {
     let fullHTML = "";
     for (const view of this.child_views) {
-      if (view.model.type === "Raw") {
+      if (
+        view.model.type === "awesome_panel_extensions.bokeh_extensions.raw.Raw"
+      ) {
         fullHTML += (view.model as Raw).text;
       } else {
         fullHTML += view.el.outerHTML;
@@ -80,14 +82,19 @@ export class ContainerView extends LayoutDOMView {
 
   replaceElementsWithViewElements() {
     for (const view of this.child_views) {
-      if (view.model.type == "Container") {
+      if (
+        view.model.type ==
+        "awesome_panel_extensions.bokeh_extensions.container.Container"
+      ) {
         // TODO [#4]: replace elements approach becomes very inefficient with multiple layers of components
         //
         // It starts from the inner-most component and works to outer, each time recursively
         // replacing in all inner components. Need to figure out a way to prevent inner
         // replaces when it will later be done with outer, or avoid replacing approach alltogether
         (view as ContainerView).replaceElementsWithViewElements();
-      } else if (view.model.type !== "Raw") {
+      } else if (
+        view.model.type !== "awesome_panel_extensions.bokeh_extensions.raw.Raw"
+      ) {
         const elem: Element = view.el;
         const replaceElem = document.querySelector(`#${elem.id}`);
         if (!replaceElem) continue;
